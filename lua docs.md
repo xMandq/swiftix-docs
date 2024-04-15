@@ -163,16 +163,16 @@ print(GetItemInfo(2).name)--return name of id block 2
 
 ## GamePacket
 | Type | Name |
-|:-----|:----:|:-----------|
-| String | `type` | |
-| String | `netid` | |
-| String | `country` | |
-| Number | `int_data`  | |
-| Number | `pos_x`  | |
-| Number | `pos_y` | |
-| Number | `int_x` | |
-| Number | `int_y` | |
-| Number | `flags` | |
+|:-----|:----:|
+| String | `type` |
+| String | `netid` |
+| String | `country` |
+| Number | `int_data`  |
+| Number | `pos_x`  |
+| Number | `pos_y` |
+| Number | `int_x` |
+| Number | `int_y` |
+| Number | `flags` |
 
 ## GetLocal
 | Type | Name | Description|
