@@ -26,7 +26,7 @@ SendPacket(2, "action|respawn")
 ## SendPacketRaw
 `SendPacketRaw(GamePacket packet)`
 
-Sends [GamePacket](#gamepacket) to server.
+Sends Game packet to server.
 
 Example:
 ```lua
@@ -62,7 +62,7 @@ FindPath(0, 0)
 ## GetLocal
 `GetLocal()`
 
-Returns local [NetAvatar](##netavatar) struct
+Returns local NetAvatar struct
 
 Example:
 ```lua
@@ -74,7 +74,7 @@ print(me.name)
 ## GetInventory
 `GetInventory()`
 
-Returns table of [InventoryItems](#inventoryitem)
+Returns table of Inventory Items
 
 Example:
 ```lua
@@ -87,7 +87,7 @@ end
 ## GetPlayers
 `GetPlayers()`
 
-Returns table of [NetAvatars](#netavatar)
+Returns table of NetAvatars
 
 Example:
 ```lua
@@ -100,7 +100,7 @@ end
 ## getObjects
 `GetObjects()`
 
-Returns table of [WorldObjects](#worldobject)
+Returns table of World Objects
 
 Example:
 ```lua
@@ -113,7 +113,7 @@ end
 ## GetTile
 `GetTile(int x, int y)`
 
-Returns world [Tile](#tile) in selected position
+Returns world Tile in selected position
 
 Example:
 ```lua
@@ -150,7 +150,7 @@ SendPacket(2, "action|input\n|text|`9Done!")
 ## GetItemInfo
 `GetItemInfo(int id)`
 
-Returns table of [ItemInfo](#ItemInfo)
+Returns table of Item Info
 
 Example:
 ```lua
@@ -160,13 +160,6 @@ print(GetItemInfo(2).name)--return name of id block 2
 
 # Structs
 
-* [NetAvatar](#netavatar)
-* [WorldObject](#worldobject)
-* [InventoryItem](#inventoryitem)
-* [Tile](#tile)
-* [GamePacket](#gamepacket)
-* [VariantList](#variantlist)
-* [ItemInfo](#iteminfo)
 
 ## GamePacket
 | Type | Name |
