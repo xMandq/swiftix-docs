@@ -125,7 +125,7 @@ print(tile.fg)
 ## GetTiles
 `GetTiles()`
 
-Returns table of [Tiles](S#tile)
+Returns table of Tiles
 
 Example:
 ```lua
