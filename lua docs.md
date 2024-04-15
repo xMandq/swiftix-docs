@@ -132,7 +132,7 @@ Example:
 -- Logs current worlds all foreground block id
 for _,tile in pairs(GetTiles()) do
 	print(tile.fg)
-    Sleep(200)
+	Sleep(200)
 end
 ```
 
