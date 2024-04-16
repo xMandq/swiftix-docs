@@ -184,15 +184,6 @@ print(GetItemInfo(2).name)--return name of id block 2
 | Number | `pos.y` | Player y position |
 | Boolean | `isleft` | Is player facing left |
 
-## GetLocal
-| Type | Name | Description|
-|:-----|:----:|:-----------|
-| String | `name` |  Player name |
-| Number | `netid` | Player netid |
-| Number | `userid` | Player userid |
-| Number | `pos.x` | Player x position |
-| Number | `pos.y` | Player y position |
-
 ## GetTile - GetTiles
 | Type | Name | Description|
 |:-----|:----:|:-----------|
