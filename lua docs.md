@@ -1,6 +1,7 @@
 # Functions
 * [SendPacket](#sendpacket)
 * [SendPacketRaw](#sendpacketraw)
+* [SendVarlist](#sendvarlist)
 * [log](#log)
 * [FindPath](#findpath)
 * [GetLocal](#getlocal)
@@ -40,6 +41,19 @@ local packet = {}
 packet.type = 10 
 packet.int_data = 48 -- Clothing ID (Jeans)
 SendPacketRaw(packet)
+```
+
+## SendVarlist
+`SendVarlist(table varlist)`
+
+Example:
+```lua
+local var = {}
+var[0] = "OnConsoleMessage"
+var[1] = "Dababy!"
+var.netid = -1
+
+SendVarlist(var)
 ```
 
 ## log
