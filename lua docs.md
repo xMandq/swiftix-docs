@@ -25,7 +25,7 @@ Sends text packet with selected type to server.
 
 Example:
 ```lua
--- Sends respawn packet to server
+--Sends respawn packet to server
 SendPacket(2, "action|respawn")
 ```
 
@@ -36,10 +36,10 @@ Sends Game packet to server.
 
 Example:
 ```lua
--- Sends wear clothing packet to server
+--Sends wear clothing packet to server
 local packet = {}
 packet.type = 10 
-packet.int_data = 48 -- Clothing ID (Jeans)
+packet.int_data = 48 --Clothing ID (Jeans)
 SendPacketRaw(packet)
 ```
 
@@ -63,7 +63,7 @@ Logs message to Growtopias console (only client side)
 
 Example:
 ```lua
--- Logs "Hello!" to Growtopias console
+--Logs "Hello!" to Growtopias console
 log("Hello!")
 ```
 
@@ -74,7 +74,7 @@ Finds path to selected x,y
 
 Example:
 ```lua
--- Finds path to top left corner of the world
+--Finds path to top left corner of the world
 FindPath(0, 0)
 ```
 
@@ -85,7 +85,7 @@ Returns local NetAvatar struct
 
 Example:
 ```lua
--- Logs local players name
+--Logs local players name
 local me = GetLocal()
 log(me.name)
 ```
@@ -97,7 +97,7 @@ Returns table of Inventory Items
 
 Example:
 ```lua
--- Logs all item ids in your inventory
+--Logs all item ids in your inventory
 for _,cur in pairs(GetInventory()) do
 	log(cur.id)
 end
@@ -110,7 +110,7 @@ Returns table of NetAvatars
 
 Example:
 ```lua
--- Logs current worlds players names
+--Logs current worlds players names
 for _,player in pairs(GetPlayers()) do
 	log(player.name)
 end
@@ -123,7 +123,7 @@ Returns table of World Objects
 
 Example:
 ```lua
--- Logs current worlds objects item id
+--Logs current worlds objects item id
 for _,object in pairs(GetObjects()) do
 	log(object.id)
 end
@@ -136,7 +136,7 @@ Returns world Tile in selected position
 
 Example:
 ```lua
--- Logs top left corners foreground block id
+--Logs top left corners foreground block id
 local tile = GetTile(0, 0)
 log(tile.fg)
 ```
@@ -148,7 +148,7 @@ Returns table of Tiles
 
 Example:
 ```lua
--- Logs current worlds all foreground block id
+--Logs current worlds all foreground block id
 for _,tile in pairs(GetTiles()) do
 	log(tile.fg)
 	Sleep(200)
@@ -174,7 +174,7 @@ Add a hook to a selected function
 
 Example:
 ```lua
--- Blocks your chat
+--Blocks your chat
 function hook(type, packet)
 	if packet:find("actiont|input\n|text") then
 		return true
@@ -183,7 +183,7 @@ end
 
 AddHook("OnPacket", "hook", hook)
 	
--- Blocks your packet_state
+--Blocks your packet_state
 function hook(packet)
 	if packet.type == 0 then
 		return true
@@ -193,7 +193,7 @@ end
 AddHook("Hook", "OnRawPacket", hook)
 
 
--- Blocks people packet_state
+--Blocks people packet_state
 function hook(packet)
 	if packet.type == 0 then
 		return true
@@ -202,7 +202,7 @@ end
 
 AddHook("OnIncomingRawPacket", "hook", hook)
 
--- Blocks all dialogs
+--Blocks all dialogs
 function hook(varlist, packet)
 	if varlist[0]:find("OnDialogRequest") then
 		return true
@@ -256,7 +256,7 @@ SendPacket(2, "action|input\n|text|`9Done!")
 
 Example:
 ```lua
-log(GetItemCount(2))--return dirt count 
+log(GetItemCount(2)) --return dirt count 
 ```
 
 ## GetItemInfo
@@ -266,7 +266,7 @@ Returns table of Item Info
 
 Example:
 ```lua
-log(GetItemInfo(2).name)--return name of id block 2
+log(GetItemInfo(2).name) --return name of id block 2
 ```
 
 
