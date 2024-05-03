@@ -190,8 +190,7 @@ function hook(packet)
 	end
 end
 
-AddHook("Hook", "OnRawPacket", hook)
-
+AddHook("OnRawPacket", "hook", hook)
 
 --Blocks people packet_state
 function hook(packet)
