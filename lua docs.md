@@ -48,15 +48,16 @@ SendPacketRaw(packet)
 ## SendPacketRawClient
 `SendPacketRawClient(GamePacket packet)`
 
-Sends [GamePacket](#gamepacket) to client.
+Sends game packet to client.
 
 Example:
 ```lua
 -- Sends packet_state flag to client
 local packet = {}
-packet.type = 0 
-packet.flags = 48 -- flags
-SendPacketRaw(packet)
+packet.type = 13
+packet.int_data = 7188 -- item id
+packet.count2 = 20 -- item count
+SendPacketRawClient(packet)
 ```
 
 ## SendVarlist
