@@ -1,6 +1,7 @@
 # Functions
 * [SendPacket](#sendpacket)
 * [SendPacketRaw](#sendpacketraw)
+* [SendPacketRawClient](#sendpacketrawclient)
 * [SendVarlist](#sendvarlist)
 * [log](#log)
 * [FindPath](#findpath)
@@ -10,6 +11,7 @@
 * [GetObjects](#getobjects)
 * [GetTile](#gettile)
 * [GetTiles](#gettiles)
+* [GetPing](#getping)
 * [AddHook](#AddHook)
 * [RemoveHook](#RemoveHook)
 * [RemoveHooks](#RemoveHooks)
@@ -40,6 +42,20 @@ Example:
 local packet = {}
 packet.type = 10 
 packet.int_data = 48 --Clothing ID (Jeans)
+SendPacketRaw(packet)
+```
+
+## SendPacketRawClient
+`SendPacketRawClient(GamePacket packet)`
+
+Sends [GamePacket](#gamepacket) to client.
+
+Example:
+```lua
+-- Sends packet_state flag to client
+local packet = {}
+packet.type = 0 
+packet.flags = 48 -- flags
 SendPacketRaw(packet)
 ```
 
@@ -237,6 +253,16 @@ end
 AddHook("OnVarlist", "hook", hook)
 
 RemoveHook("hook") --remove that hook
+```
+
+
+## GetPing
+`GetPing()`
+Get ping ms from your peer
+
+Example:
+```lua
+log("My ping is : "..tostring(GetPing()))
 ```
 
 ## Sleep
