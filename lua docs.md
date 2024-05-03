@@ -52,7 +52,6 @@ Sends game packet to client.
 
 Example:
 ```lua
--- Sends packet_state flag to client
 local packet = {}
 packet.type = 13
 packet.int_data = 7188 -- item id
