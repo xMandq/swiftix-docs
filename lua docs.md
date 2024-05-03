@@ -8,6 +8,7 @@
 * [GetPlayers](#getplayers)
 * [GetObjects](#getobjects)
 * [GetTile](#gettile)
+* [RunThread](#runthread)
 * [GetTiles](#gettiles)
 * [Sleep](#sleep)
 * [GetItemInfo](#GetItemInfo)
@@ -134,6 +135,19 @@ for _,tile in pairs(GetTiles()) do
 	print(tile.fg)
 	Sleep(200)
 end
+```
+
+## RunThread
+`RunThread(function)`
+Run a function in a different thread
+
+Example
+```lua
+RunThread(function()
+	log("Hello")
+	Sleep(1000)
+	log("World!")
+end)
 ```
 
 ## Sleep
