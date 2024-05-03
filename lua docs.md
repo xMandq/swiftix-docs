@@ -220,9 +220,9 @@ function hook(varlist, packet)
 		return true
 	end
 end
-AddCallback("Hook", "OnVarlist", hook)
+AddHook("OnVarlist", "hook", hook)
 
-RemoveCallback("Hook") --remove that callback
+RemoveHook("hook") --remove that hook
 ```
 
 ## Sleep
