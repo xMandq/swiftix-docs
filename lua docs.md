@@ -116,7 +116,7 @@ for _,player in pairs(GetPlayers()) do
 end
 ```
 
-## getObjects
+## GetObjects
 `GetObjects()`
 
 Returns table of World Objects
