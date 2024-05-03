@@ -1,7 +1,7 @@
 # Functions
 * [SendPacket](#sendpacket)
 * [SendPacketRaw](#sendpacketraw)
-* [print](#print)
+* [log](#log)
 * [FindPath](#findpath)
 * [GetLocal](#getlocal)
 * [GetInventory](#getinventory)
@@ -38,15 +38,15 @@ packet.int_data = 48 -- Clothing ID (Jeans)
 SendPacketRaw(packet)
 ```
 
-## print
-`print(string message)`
+## log
+`log(string message)`
 
 Logs message to Growtopias console (only client side)
 
 Example:
 ```lua
 -- Logs "Hello!" to Growtopias console
-print("Hello!")
+log("Hello!")
 ```
 
 ## FindPath
@@ -69,7 +69,7 @@ Example:
 ```lua
 -- Logs local players name
 local me = GetLocal()
-print(me.name)
+log(me.name)
 ```
 
 ## GetInventory
@@ -81,7 +81,7 @@ Example:
 ```lua
 -- Logs all item ids in your inventory
 for _,cur in pairs(GetInventory()) do
-	print(cur.id)
+	log(cur.id)
 end
 ```
 
@@ -94,7 +94,7 @@ Example:
 ```lua
 -- Logs current worlds players names
 for _,player in pairs(GetPlayers()) do
-	print(player.name)
+	log(player.name)
 end
 ```
 
@@ -107,7 +107,7 @@ Example:
 ```lua
 -- Logs current worlds objects item id
 for _,object in pairs(GetObjects()) do
-	print(object.id)
+	log(object.id)
 end
 ```
 
@@ -120,7 +120,7 @@ Example:
 ```lua
 -- Logs top left corners foreground block id
 local tile = GetTile(0, 0)
-print(tile.fg)
+log(tile.fg)
 ```
 
 ## GetTiles
@@ -132,7 +132,7 @@ Example:
 ```lua
 -- Logs current worlds all foreground block id
 for _,tile in pairs(GetTiles()) do
-	print(tile.fg)
+	log(tile.fg)
 	Sleep(200)
 end
 ```
@@ -168,7 +168,7 @@ Returns table of Item Info
 
 Example:
 ```lua
-print(GetItemInfo(2).name)--return name of id block 2
+log(GetItemInfo(2).name)--return name of id block 2
 ```
 
 
