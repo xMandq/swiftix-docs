@@ -10,6 +10,7 @@
 * [GetTile](#gettile)
 * [AddHook](#AddHook)
 * [RemoveHook](#RemoveHook)
+* [RemoveHooks](#RemoveHooks)
 * [RunThread](#runthread)
 * [GetTiles](#gettiles)
 * [Sleep](#sleep)
@@ -202,6 +203,26 @@ function hook(packet)
 end
 
 AddHook("Hook", "OnIncomingPacket", hook)
+```
+
+## RemoveHooks
+`RemoveHooks()`
+Remove all hooks
+
+## RemoveHook
+`RemoveHook(string name)`
+Remove spesific name on a hook
+
+Example:
+```lua
+function hook(varlist, packet)
+	if varlist[0]:find("OnDialogRequest") then
+		return true
+	end
+end
+AddCallback("Hook", "OnVarlist", hook)
+
+RemoveCallback("Hook") --remove that callback
 ```
 
 ## Sleep
