@@ -14,6 +14,7 @@
 * [RunThread](#runthread)
 * [GetTiles](#gettiles)
 * [Sleep](#sleep)
+* [GetItemCount](#GetItemCount)
 * [GetItemInfo](#GetItemInfo)
 
 ## SendPacket
@@ -234,6 +235,14 @@ Example:
 SendPacket(2, "action|input\n|text|`@send message in 2 secs !")
 Sleep(2000)
 SendPacket(2, "action|input\n|text|`9Done!")
+```
+
+## GetItemCount
+`GetItemCount(int id)`
+
+Example:
+```lua
+log(GetItemCount(2))--return dirt count 
 ```
 
 ## GetItemInfo
