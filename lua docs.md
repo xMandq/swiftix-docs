@@ -8,6 +8,8 @@
 * [GetPlayers](#getplayers)
 * [GetObjects](#getobjects)
 * [GetTile](#gettile)
+* [AddHook](#AddHook)
+* [RemoveHook](#RemoveHook)
 * [RunThread](#runthread)
 * [GetTiles](#gettiles)
 * [Sleep](#sleep)
@@ -148,6 +150,58 @@ RunThread(function()
 	Sleep(1000)
 	log("World!")
 end)
+```
+
+## AddHook
+`AddHook(void* function, string name)`
+Add a hook to a selected function
+
+Example:
+```lua
+-- Blocks your chat
+function hook(type, packet)
+	if packet:find("actiont|input\n|text") then
+		return true
+	end
+end
+
+AddHook("OnPacket", "hook", hook)
+	
+-- Blocks your packet_state
+function hook(packet)
+	if packet.type == 0 then
+		return true
+	end
+end
+
+AddHook("Hook", "OnRawPacket", hook)
+
+
+-- Blocks people packet_state
+function hook(packet)
+	if packet.type == 0 then
+		return true
+	end
+end
+
+AddHook("OnIncomingRawPacket", "hook", hook)
+
+-- Blocks all dialogs
+function hook(varlist, packet)
+	if varlist[0]:find("OnDialogRequest") then
+		return true
+	end
+end
+
+AddHook("OnVarlist", "hook", hook)
+
+function hook(packet)
+	if packet.type == 0 then
+		packet.flags = 0
+	end
+end
+
+AddHook("Hook", "OnIncomingPacket", hook)
 ```
 
 ## Sleep
