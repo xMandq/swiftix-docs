@@ -68,7 +68,6 @@ local var = {}
 var[0] = "OnConsoleMessage"
 var[1] = "Dababy!"
 var.netid = -1
-
 SendVarlist(var)
 ```
 
@@ -232,7 +231,7 @@ function hook(packet)
 	end
 end
 
-AddHook("Hook", "OnIncomingPacket", hook)
+AddHook("OnIncomingPacket", "hook", hook)
 ```
 
 ## RemoveHooks
