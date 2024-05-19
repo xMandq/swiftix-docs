@@ -189,7 +189,6 @@ Add a hook to a selected function
 
 Example:
 ```lua
---Blocks your chat
 function hook(type, packet)
 	if packet:find("actiont|input\n|text") then
 		return true
@@ -198,7 +197,6 @@ end
 
 AddHook("OnPacket", "hook", hook)
 	
---Blocks your packet_state
 function hook(packet)
 	if packet.type == 0 then
 		return true
@@ -207,7 +205,6 @@ end
 
 AddHook("OnRawPacket", "hook", hook)
 
---Blocks people packet_state
 function hook(packet)
 	if packet.type == 0 then
 		return true
@@ -216,7 +213,6 @@ end
 
 AddHook("OnIncomingRawPacket", "hook", hook)
 
---Blocks all dialogs
 function hook(varlist, packet)
 	if varlist[0]:find("OnDialogRequest") then
 		return true
