@@ -17,6 +17,7 @@
 * [RemoveHooks](#RemoveHooks)
 * [RunThread](#runthread)
 * [Sleep](#sleep)
+* [SendWebhook](#sendwebhook)
 * [GetItemCount](#GetItemCount)
 * [GetItemInfo](#GetItemInfo)
 
@@ -258,6 +259,38 @@ Get ping ms from your peer
 Example:
 ```lua
 log("My ping is : "..tostring(GetPing()))
+```
+
+## SendWebhook
+`SendWebhook(string webhook, string json)`
+
+Example:
+```lua
+local payload = [[{
+    "content": "",
+    "embeds": [{
+        "title": "ytta",
+        "description": "ytta :flushed:",
+        "url": "https://avatarfiles.alphacoders.com/334/334449.png",
+        "color": 5814783,
+        "fields": [{
+            "name": "Introduction",
+            "value": "My name is Walter Hartwell White. I live at 308 Negra Arroyo Lane Albuquerque New Mexico 87104. This is my confession."
+        }],
+        "author": {
+            "name": "kontol",
+            "url": "https://avatarfiles.alphacoders.com/334/334449.png",
+            "icon_url": "https://avatarfiles.alphacoders.com/334/334449.png"
+        },
+        "footer": {
+            "text": "sended from !",
+            "icon_url": "https://copypastatext.com/wp-content/uploads/2021/12/index-14.jpg"
+        },
+        "timestamp": "2023-02-14T17:00:00.000Z"
+    }]
+}]]
+local webhook = ""
+SendWebhook(webhook, payload)
 ```
 
 ## Sleep
