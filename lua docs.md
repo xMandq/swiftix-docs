@@ -17,6 +17,7 @@
 * [RemoveHooks](#RemoveHooks)
 * [RunThread](#runthread)
 * [Sleep](#sleep)
+* [IsReady](#iseeady)
 * [SendWebhook](#sendwebhook)
 * [GetItemCount](#GetItemCount)
 * [GetItemInfo](#GetItemInfo)
@@ -251,6 +252,13 @@ AddHook("OnVarlist", "hook", hook)
 RemoveHook("hook") --remove that hook
 ```
 
+## IsReady
+`IsReady(int x, int y)`
+
+Example:
+```lua
+IsReady(23, 23)  -- return bool (true == tree is harvestable)
+```
 
 ## GetPing
 `GetPing()`
