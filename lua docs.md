@@ -17,7 +17,7 @@
 * [RemoveHooks](#RemoveHooks)
 * [RunThread](#runthread)
 * [Sleep](#sleep)
-* [IsReady](#iseeady)
+* [IsReady](#isready)
 * [SendWebhook](#sendwebhook)
 * [GetItemCount](#GetItemCount)
 * [GetItemInfo](#GetItemInfo)
