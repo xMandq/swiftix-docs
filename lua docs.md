@@ -373,7 +373,7 @@ log(GetItemInfo(2).name) --return name of id block 2
 | Type | Name | Description|
 |:-----|:----:|:-----------|
 | Number | `id` | Item id |
-| Number | `amount` | Item amount |
+| Number | `count` | Item count |
 | Number | `flags` | item flags |
 
 ## GetItemInfo
