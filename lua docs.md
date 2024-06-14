@@ -159,7 +159,7 @@ end
 ## GetWorld
 `GetWorld()`
 
-Returns [current world](#CurrentWorld) information
+Returns [Current World](#CurrentWorld) information
 
 Example:
 ```lua
