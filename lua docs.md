@@ -48,10 +48,10 @@ Sends [GamePacket](#gamepacket) to server.
 
 Example:
 ```lua
--- Sends wear clothing packet to server
-local packet = {}
+-- Compress 100 wls to 1 dl
+packet = {}
 packet.type = 10 
-packet.int_data = 48 -- Clothing ID (Jeans)
+packet.int_data = 1796
 SendPacketRaw(packet)
 ```
 
@@ -62,11 +62,12 @@ Sends [GamePacket](#gamepacket) to client.
 
 Example:
 ```lua
--- Sends packet_state flag to client
-local packet = {}
-packet.type = 0 
-packet.flags = 48 -- flags
-SendPacketRaw(packet)
+-- Gives you visually 200 dls
+packet = {}
+packet.type = 13
+packet.int_data = 1796
+packet.count2 = 200
+SendPacketRawClient(packet)
 ```
 
 ## SendVarlist
