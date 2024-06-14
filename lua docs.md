@@ -48,7 +48,7 @@ Sends [GamePacket](#gamepacket) to server.
 
 Example:
 ```lua
--- Compress 100 wls to 1 dl
+-- Shatter 1 dl to 100 wls
 packet = {}
 packet.type = 10 
 packet.int_data = 1796
