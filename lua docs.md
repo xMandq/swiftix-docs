@@ -75,10 +75,10 @@ SendPacketRawClient(packet)
 
 Example:
 ```lua
-local var = {} --make table
+local var = {}
 var[0] = "OnConsoleMessage"
 var[1] = "Dababy!"
-var.netid = -1 --need to put netid or it doesn't work
+var.netid = -1
 
 SendVarlist(var)
 ```
@@ -158,6 +158,8 @@ end
 
 ## GetWorld
 `GetWorld()`
+
+Returns current world [Information](#getworld)
 
 Example:
 ```lua
