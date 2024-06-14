@@ -17,6 +17,7 @@
 * [AddHook](#AddHook)
 * [RunThread](#runthread)
 * [Sleep](#sleep)
+* [TranslateText](#translatetext)
 * [MessageBox](#messagebox)
 * [RemoveHooks](#RemoveHooks)
 * [RemoveHook](#RemoveHook)
@@ -267,6 +268,16 @@ Get ping ms from your peer
 Example:
 ```lua
 log("My ping is : "..tostring(GetPing()))
+```
+
+## TranslateText
+`TranslateText(text, language to translate in, text language)`
+Translate text messages and returns translated message
+
+Example:
+```lua
+translated_text = TranslateText("apa", "en", "id")
+print(translated_text)
 ```
 
 ## MessageBox
