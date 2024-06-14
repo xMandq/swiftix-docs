@@ -12,6 +12,7 @@
 * [GetWorld](#getworld)
 * [GetTile](#gettile)
 * [GetTiles](#gettiles)
+* [IsReady](#isready)
 * [GetPing](#getping)
 * [AddHook](#AddHook)
 * [RunThread](#runthread)
@@ -251,6 +252,14 @@ end
 AddHook("OnRawPacket", "hook", hook)
 ```
 
+## IsReady
+`IsReady(int x, int y)`
+Check if the seed is harvestable, return true if yes. else is false
+
+```lua
+IsReady(9, 45)
+```
+
 ## GetPing
 `GetPing()`
 Get ping ms from your peer
@@ -291,8 +300,11 @@ RemoveHook("Hook") --remove that callback
 
 ## IsSolid
 `IsSolid(int x, int y)`
-Check if the block is solid or no, return true if it solid. else is false
-x is x for pos x tile. same with y
+Check if the block is solid, return true if yes. else is false
+
+```lua
+IsSolid(0, 0)
+```
 
 ## SendWebhook
 `SendWebhook(string webhook, string json)`
