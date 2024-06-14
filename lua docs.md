@@ -9,6 +9,7 @@
 * [GetInventory](#getinventory)
 * [GetPlayers](#getplayers)
 * [GetObjects](#getobjects)
+* [GetWorld](#getworld)
 * [GetTile](#gettile)
 * [GetTiles](#gettiles)
 * [GetPing](#getping)
@@ -150,6 +151,16 @@ Example:
 for _,object in pairs(GetObjects()) do
 	log(object.id)
 end
+```
+
+## getworld
+`GetWorld()`
+
+Example:
+```lua
+-- Logs current worlds name
+world = GetWorld().name
+log(world)
 ```
 
 ## GetTile
@@ -386,7 +397,6 @@ end
 | Type | Name | Description|
 |:-----|:----:|:-----------|
 | String | `name` | Player's name |
-| String | `world` | Player's world(only local) |
 | String | `country` | Player's flag id |
 | Number | `pos_x`  | Player's x position |
 | Number | `pos_y`  | Player's y position |
