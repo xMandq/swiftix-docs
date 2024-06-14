@@ -340,16 +340,18 @@ Example:
 
 Example:
 ```lua
-	EditToggle("modfly", true)-- active modfly
+	EditToggle("ModFly", true)-- active modfly
 ```
 ## Module list:
 * ModFly
 * AntiBounce
+* AutoCollect
+* AutoCollectRange
 * RightClickKick
 * LeftClickPull
-* GemsChecker
 * FastDice
 * FastRoshambo
+* GemsChecker
 
 ## GetItemCount
 `GetItemCount(int id)`
