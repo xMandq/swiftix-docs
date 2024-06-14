@@ -159,7 +159,7 @@ end
 ## GetWorld
 `GetWorld()`
 
-Returns current world [Information](#getworld)
+Returns [current world](#CurrentWorld) information
 
 Example:
 ```lua
@@ -439,7 +439,7 @@ end
 | Number | `flags` | Player's flags |
 | Number | `flags2` | Player's flags2 |
 
-## GetWorld
+## CurrentWorld
 | Type | Name | Description|
 |:-----|:----:|:-----------|
 | Number | `name` | Current world name |
