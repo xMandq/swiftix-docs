@@ -153,7 +153,7 @@ for _,object in pairs(GetObjects()) do
 end
 ```
 
-## getworld
+## GetWorld
 `GetWorld()`
 
 Example:
