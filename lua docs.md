@@ -197,7 +197,7 @@ end
 `RunThread(function)`
 Run a function in a different thread
 
-Example
+Example:
 ```lua
 RunThread(function()
 	log("Hello")
@@ -259,6 +259,7 @@ AddHook("OnRawPacket", "hook", hook)
 ## IsReady
 `IsReady(int x, int y)`
 
+Example:
 ```lua
 IsReady(9, 45) -- return bool (true == harvestable)
 ```
