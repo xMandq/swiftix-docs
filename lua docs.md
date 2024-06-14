@@ -356,7 +356,7 @@ SendWebhook(webhook, payload)
 
 Example:
 ```lua
-	CheckPath(0, 0) -- return bool (true == found path)
+CheckPath(0, 0) -- return bool (true == found path)
 ```
 
 ## EditToggle
@@ -364,7 +364,7 @@ Example:
 
 Example:
 ```lua
-	EditToggle("ModFly", true) -- activate modfly
+EditToggle("ModFly", true) -- activate modfly
 ```
 ## Module list:
 * ModFly
