@@ -414,6 +414,7 @@ end
 # Structs
 
 * [NetAvatar](#netavatar)
+* [Current World](#CurrentWorld)
 * [WorldObject](#worldobject)
 * [InventoryItem](#inventoryitem)
 * [Tile](#tile)
