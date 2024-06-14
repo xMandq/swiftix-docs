@@ -13,14 +13,22 @@
 * [GetTiles](#gettiles)
 * [GetPing](#getping)
 * [AddHook](#AddHook)
-* [RemoveHook](#RemoveHook)
-* [RemoveHooks](#RemoveHooks)
 * [RunThread](#runthread)
 * [Sleep](#sleep)
-* [IsReady](#isready)
+* [GetAccesslist](#getaccesslist)
+* [GetGhost](#getghost)
+* [MessageBox](#messagebox)
+* [RemoveHooks](#RemoveHooks)
+* [RemoveHook](#RemoveHook)
+* [Timer](#timer)
+* [IsSolid](#issolid)
 * [SendWebhook](#sendwebhook)
-* [GetItemCount](#GetItemCount)
-* [GetItemInfo](#GetItemInfo)
+* [CheckPath](#checkpath)
+* [EditToggle](#edittoggle)
+* [GetItemCount](#getitemcount)
+* [GetIteminfo](#GetIteminfo)
+* [PathFind](#PathFind)
+
 
 ## SendPacket
 `SendPacket(int type, string packet)`
@@ -29,36 +37,36 @@ Sends text packet with selected type to server.
 
 Example:
 ```lua
---Sends respawn packet to server
+-- Sends respawn packet to server
 SendPacket(2, "action|respawn")
 ```
 
 ## SendPacketRaw
 `SendPacketRaw(GamePacket packet)`
 
-Sends Game packet to server.
+Sends [GamePacket](#gamepacket) to server.
 
 Example:
 ```lua
---Sends wear clothing packet to server
+-- Sends wear clothing packet to server
 local packet = {}
 packet.type = 10 
-packet.int_data = 48 --Clothing ID (Jeans)
+packet.int_data = 48 -- Clothing ID (Jeans)
 SendPacketRaw(packet)
 ```
 
 ## SendPacketRawClient
 `SendPacketRawClient(GamePacket packet)`
 
-Sends game packet to client.
+Sends [GamePacket](#gamepacket) to client.
 
 Example:
 ```lua
+-- Sends packet_state flag to client
 local packet = {}
-packet.type = 13
-packet.int_data = 7188 -- item id
-packet.count2 = 20 -- item count
-SendPacketRawClient(packet)
+packet.type = 0 
+packet.flags = 48 -- flags
+SendPacketRaw(packet)
 ```
 
 ## SendVarlist
@@ -66,10 +74,11 @@ SendPacketRawClient(packet)
 
 Example:
 ```lua
-local var = {}
+local var = {} --make table
 var[0] = "OnConsoleMessage"
 var[1] = "Dababy!"
-var.netid = -1
+var.netid = -1 --need to put netid or it doesn't work
+
 SendVarlist(var)
 ```
 
@@ -80,7 +89,7 @@ Logs message to Growtopias console (only client side)
 
 Example:
 ```lua
---Logs "Hello!" to Growtopias console
+-- Logs "Hello!" to Growtopias console
 log("Hello!")
 ```
 
@@ -91,18 +100,18 @@ Finds path to selected x,y
 
 Example:
 ```lua
---Finds path to top left corner of the world
+-- Finds path to top left corner of the world
 FindPath(0, 0)
 ```
 
 ## GetLocal
 `GetLocal()`
 
-Returns local NetAvatar struct
+Returns local [NetAvatar](##netavatar) struct
 
 Example:
 ```lua
---Logs local players name
+-- Logs local players name
 local me = GetLocal()
 log(me.name)
 ```
@@ -110,11 +119,11 @@ log(me.name)
 ## GetInventory
 `GetInventory()`
 
-Returns table of Inventory Items
+Returns table of [InventoryItems](#inventoryitem)
 
 Example:
 ```lua
---Logs all item ids in your inventory
+-- Logs all item ids in your inventory
 for _,cur in pairs(GetInventory()) do
 	log(cur.id)
 end
@@ -123,24 +132,24 @@ end
 ## GetPlayers
 `GetPlayers()`
 
-Returns table of NetAvatars
+Returns table of [NetAvatars](#netavatar)
 
 Example:
 ```lua
---Logs current worlds players names
+-- Logs current worlds players names
 for _,player in pairs(GetPlayers()) do
 	log(player.name)
 end
 ```
 
-## GetObjects
+## getObjects
 `GetObjects()`
 
-Returns table of World Objects
+Returns table of [WorldObjects](#worldobject)
 
 Example:
 ```lua
---Logs current worlds objects item id
+-- Logs current worlds objects item id's
 for _,object in pairs(GetObjects()) do
 	log(object.id)
 end
@@ -149,11 +158,11 @@ end
 ## GetTile
 `GetTile(int x, int y)`
 
-Returns world Tile in selected position
+Returns world [Tile](#tile) in selected position
 
 Example:
 ```lua
---Logs top left corners foreground block id
+-- Logs top left corners foreground block id
 local tile = GetTile(0, 0)
 log(tile.fg)
 ```
@@ -161,14 +170,13 @@ log(tile.fg)
 ## GetTiles
 `GetTiles()`
 
-Returns table of Tiles
+Returns table of [Tiles](S#tile)
 
 Example:
 ```lua
---Logs current worlds all foreground block id
+-- Logs current worlds all foreground block id's
 for _,tile in pairs(GetTiles()) do
 	log(tile.fg)
-	Sleep(200)
 end
 ```
 
@@ -185,12 +193,38 @@ RunThread(function()
 end)
 ```
 
-## AddHook
-`AddHook(void* function, string name)`
-Add a hook to a selected function
+## Sleep
+`Sleep(int ms)`
+put a delay inside a [Thread](#runthread)
 
 Example:
 ```lua
+local function wow(a, b)
+	log(a)
+	Sleep(1000)
+	log(b)
+end
+RunThread(function()
+	wow("Hello", "World")
+end)
+```
+
+## AddHook
+`AddHook(void* function, string name)`
+Add a Hook to a selected function
+
+Example:
+```lua
+-- Blocks all dialogs
+function hook(varlist, packet)
+	if varlist[0]:find("OnDialogRequest") then
+		return true
+	end
+end
+
+AddHook("OnVarlist", "hook", hook)
+
+-- Blocks your chat
 function hook(type, packet)
 	if packet:find("actiont|input\n|text") then
 		return true
@@ -198,7 +232,8 @@ function hook(type, packet)
 end
 
 AddHook("OnPacket", "hook", hook)
-	
+
+-- Blocks your packet_state
 function hook(packet)
 	if packet.type == 0 then
 		return true
@@ -206,58 +241,6 @@ function hook(packet)
 end
 
 AddHook("OnRawPacket", "hook", hook)
-
-function hook(packet)
-	if packet.type == 0 then
-		return true
-	end
-end
-
-AddHook("OnIncomingRawPacket", "hook", hook)
-
-function hook(varlist, packet)
-	if varlist[0]:find("OnDialogRequest") then
-		return true
-	end
-end
-
-AddHook("OnVarlist", "hook", hook)
-
-function hook(packet)
-	if packet.type == 0 then
-		packet.flags = 0
-	end
-end
-
-AddHook("OnIncomingPacket", "hook", hook)
-```
-
-## RemoveHooks
-`RemoveHooks()`
-Remove all hooks
-
-## RemoveHook
-`RemoveHook(string name)`
-Remove spesific name on a hook
-
-Example:
-```lua
-function hook(varlist, packet)
-	if varlist[0]:find("OnDialogRequest") then
-		return true
-	end
-end
-AddHook("OnVarlist", "hook", hook)
-
-RemoveHook("hook") --remove that hook
-```
-
-## IsReady
-`IsReady(int x, int y)`
-
-Example:
-```lua
-IsReady(23, 23)  -- return bool (true == tree is harvestable)
 ```
 
 ## GetPing
@@ -268,6 +251,40 @@ Example:
 ```lua
 log("My ping is : "..tostring(GetPing()))
 ```
+
+## MessageBox
+`MessageBox(string title, string content)`
+Send a messagebox to your client!
+
+Example:
+```lua
+MessageBox("This is title", "This is content")
+```
+
+## RemoveHooks
+`RemoveHooks()`
+Remove all callbacks
+
+## RemoveHook
+`RemoveHook(string name)`
+Remove spesific name on callback
+
+Example:
+```lua
+function hook(varlist, packet)
+	if varlist[0]:find("OnDialogRequest") then
+		return true
+	end
+end
+AddHook("OnVarlist", "hook", hook)
+
+RemoveHook("Hook") --remove that callback
+```
+
+## IsSolid
+`IsSolid(int x, int y)`
+Check if the block is solid or no, return true if it solid. else is false
+x is x for pos x tile. same with y
 
 ## SendWebhook
 `SendWebhook(string webhook, string json)`
@@ -301,103 +318,156 @@ local webhook = ""
 SendWebhook(webhook, payload)
 ```
 
-## Sleep
-`Sleep(int ms)`
-put a delay in miliseconds
+
+## CheckPath
+`CheckPath(int x, int y)`
 
 Example:
 ```lua
-SendPacket(2, "action|input\n|text|`@send message in 2 secs !")
-Sleep(2000)
-SendPacket(2, "action|input\n|text|`9Done!")
+	CheckPath(0, 0) -- return bool (true == found path)
 ```
+
+## EditToggle
+`EditToggle(string module, bool toggle)`
+
+Example:
+```lua
+	EditToggle("modfly", true)-- active modfly
+```
+## Module list:
+* ModFly
+* AntiBounce
+* RightClickKick
+* LeftClickPull
+* GemsChecker
+* FastDice
+* FastRoshambo
 
 ## GetItemCount
 `GetItemCount(int id)`
 
 Example:
 ```lua
-log(GetItemCount(2)) --return dirt count 
+log(GetItemCount(2))--return dirt count 
 ```
+## GetIteminfo
+`GetIteminfo(int id)`
 
-## GetItemInfo
-`GetItemInfo(int id)`
-
-Returns table of Item Info
+Returns table of [ItemInfo](#ItemInfo)
 
 Example:
 ```lua
-log(GetItemInfo(2).name) --return name of id block 2
+log(GetIteminfo(2).name)--return name of id block 2
+```
+
+## PathFind
+`PathFind(int x, int y)`
+
+Returns table of path to destination
+
+Example:
+```lua
+local path = PathFind(46, 10)
+print(#path) -- how much block does it take to that destination
+for i, v in pairs(path) do
+	print(("%d, %d"):format(v.x, v.y))
+end
 ```
 
 
 # Structs
 
+* [NetAvatar](#netavatar)
+* [WorldObject](#worldobject)
+* [InventoryItem](#inventoryitem)
+* [Tile](#tile)
+* [GamePacket](#gamepacket)
+* [VariantList](#variantlist)
+* [ItemInfo](#iteminfo)
+
+## NetAvatar
+| Type | Name | Description|
+|:-----|:----:|:-----------|
+| String | `name` | Player's name |
+| String | `world` | Player's world(only local) |
+| String | `country` | Player's flag id |
+| Number | `pos_x`  | Player's x position |
+| Number | `pos_y`  | Player's y position |
+| Number | `tile_x` | Player's x tile position |
+| Number | `tile_y` | Player's y tile position |
+| Number | `size_x` | Player's x size |
+| Number | `size_y` | Player's x size |
+| Number | `netid` | Player's netID |
+| Number | `userid` | Player's userID |
+| Number | `gems` | Player's gems |
+| Bool | `facing_left` | Is player facing left |
+| Number | `flags` | Player's flags |
+| Number | `flags2` | Player's flags2 |
+
+## WorldObject
+| Type | Name | Description|
+|:-----|:----:|:-----------|
+| Number | `id` | Object's item ID |
+| Number | `oid` | Object's index |
+| Number | `pos_x` | Object's x position |
+| Number | `pos_y` | Object's y position |
+| Number | `count` | Object's item count |
+| Number | `flags` | Object's flags |
+
+## InventoryItem
+| Type | Name | Description|
+|:-----|:----:|:-----------|
+| Number | `id` | Item's ID |
+| Number | `count` | Item count |
+
+## Tile
+| Type | Name | Description|
+|:-----|:----:|:-----------|
+| Number | `fg` | Foreground block's ID |
+| Number | `bg` | Background block's ID |
+| Number | `pos_x` |Tile's x position |
+| Number | `pos_y` |Tile's y position |
+| Number | `flags` | Tile's flags |
+| bool | `water` | Tile's water |
+| bool | `fire` | Tile's fire |
+| bool | `ready` | Tile's ready to harvest |
 
 ## GamePacket
-| Type | Name |
-|:-----|:----:|
-| String | `type` |
-| String | `netid` |
-| String | `country` |
-| Number | `int_data`  |
-| Number | `pos_x`  |
-| Number | `pos_y` |
-| Number | `int_x` |
-| Number | `int_y` |
-| Number | `flags` |
-
-## GetLocal
 | Type | Name | Description|
 |:-----|:----:|:-----------|
-| Number | `name` | Player name |
-| Number | `netid` | Player netid |
-| Number | `userid` | Player userid |
-| Number | `pos.x` | Player x position |
-| Number | `pos.y` | Player y position |
-| Boolean | `isleft` | Is player facing left |
+| Number | `type` | Packet type |
+| Number | ` objtype` |  |
+| Number | `count1 ` |  |
+| Number | `count2 ` |  |
+| Number | `netid ` | Packet netID |
+| Number | `item ` |  |
+| Number | `flags ` | Packet flags |
+| Number | `float1` |  |
+| Number | `int_data` |  |
+| Number | `pos_x` |  |
+| Number | `pos_y` |  |
+| Number | `pos2_x` |  |
+| Number | `pos2_y` |  |
+| Number | `float2` |  |
+| Number | `int_x` |  |
+| Number | `int_y` |  |
 
-## GetTile - GetTiles
+## VariantList
 | Type | Name | Description|
 |:-----|:----:|:-----------|
-| Number | `fg` | Foreground block ID |
-| Number | `bg` | Background block ID |
-| Number | `pos.x` |Tile x position |
-| Number | `pos.y` |Tile y position |
-| Number | `tile.extra == "vending_machine"` | Tile flags |
-| Number | `tile.extra == "admins"` | Tile flags |
-| Number | `tile.extra.id` | Tile ID |
-| Number | `tile.extra.price` | Tile flags |
+| Number | `netid` | NetID |
+| Number | `delay` | Delay |
+| String | `[0]` | Variant function name |
+| Any | `[1]` | Param 1 |
+| Any | `[2]` | Param 2 |
+| Any | `[3]` | Param 3 |
+| Any | `[4]` | Param 4 |
+| Any | `[5]` | Param 5 |
 
-## GetInventory
+## ItemInfo
 | Type | Name | Description|
 |:-----|:----:|:-----------|
-| Number | `id` | Item id |
-| Number | `count` | Item count |
-| Number | `flags` | item flags |
-
-## GetItemInfo
-| Type | Name | Description|
-|:-----|:----:|:-----------|
-| String | `name` | Item name |
-| Number | `id` | Item ID |
-| Number | `rarity` | Item rarity |
-| Number | `growtime` | Item growth |
-| Number | `breakhit` | Item break count |
-
-## GetObjects
-| Type | Name | Description|
-|:-----|:----:|:-----------|
-| Number | `id` | object id |
-| Number | `amount` | object count |
-| Number | `pos.x` | object x position |
-| Number | `pos.y` | object y position |
-| Number | `flags` | object flags |
-| Number | `oid` | object oid |
-
-## GetWorld
-| Type | Name | Description|
-|:-----|:----:|:-----------|
-| String | `name` | World name |
-| Number | `size.x` | World size x-axix |
-| Number | `size.y` | World size y-axis |
+| String | `name` | item's name |
+| Number | `item_type` | Item's type |
+| Number | `rarity` | Item's rarity |
+| Number | `size` | Items list size |
