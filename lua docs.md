@@ -382,7 +382,7 @@ Example:
 
 Example:
 ```lua
-log(GetItemCount(2)) --return dirt count 
+log(GetItemCount(2)) -- return dirt count 
 ```
 ## GetIteminfo
 `GetIteminfo(int id)`
