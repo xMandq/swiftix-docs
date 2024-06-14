@@ -279,7 +279,7 @@ Translate text messages and returns translated message
 Example:
 ```lua
 translated_text = TranslateText("apa", "en", "id")
-log(translated_text)
+log(translated_text) -- return ' What '
 ```
 
 ## MessageBox
