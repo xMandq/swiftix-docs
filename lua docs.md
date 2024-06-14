@@ -436,6 +436,13 @@ end
 | Number | `flags` | Player's flags |
 | Number | `flags2` | Player's flags2 |
 
+## GetWorld
+| Type | Name | Description|
+|:-----|:----:|:-----------|
+| Number | `name` | Current world name |
+| Number | `size_x` | Current world size horizontally |
+| Number | `size_y` | Current world size vertically |
+
 ## WorldObject
 | Type | Name | Description|
 |:-----|:----:|:-----------|
@@ -451,6 +458,7 @@ end
 |:-----|:----:|:-----------|
 | Number | `id` | Item's ID |
 | Number | `count` | Item count |
+| Number | `flags` | Item flags |
 
 ## Tile
 | Type | Name | Description|
@@ -460,9 +468,6 @@ end
 | Number | `pos_x` |Tile's x position |
 | Number | `pos_y` |Tile's y position |
 | Number | `flags` | Tile's flags |
-| bool | `water` | Tile's water |
-| bool | `fire` | Tile's fire |
-| bool | `ready` | Tile's ready to harvest |
 
 ## GamePacket
 | Type | Name | Description|
@@ -499,7 +504,10 @@ end
 ## ItemInfo
 | Type | Name | Description|
 |:-----|:----:|:-----------|
+| String | `id` | item's id |
 | String | `name` | item's name |
 | Number | `item_type` | Item's type |
+| Number | `growtime` | Item's growth time |
 | Number | `rarity` | Item's rarity |
+| Number | `breakhit` | Item's hits count |
 | Number | `size` | Items list size |
