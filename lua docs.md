@@ -75,7 +75,7 @@ SendPacketRawClient(packet)
 
 Example:
 ```lua
-local var = {}
+var = {}
 var[0] = "OnConsoleMessage"
 var[1] = "Dababy!"
 var.netid = -1
@@ -113,7 +113,7 @@ Returns local [NetAvatar](##netavatar) struct
 Example:
 ```lua
 -- Logs local players name
-local me = GetLocal()
+me = GetLocal()
 log(me.name)
 ```
 
@@ -176,7 +176,7 @@ Returns world [Tile](#tile) in selected position
 Example:
 ```lua
 -- Logs top left corners foreground block id
-local tile = GetTile(0, 0)
+tile = GetTile(0, 0)
 log(tile.fg)
 ```
 
@@ -212,7 +212,7 @@ put a delay inside a [Thread](#runthread)
 
 Example:
 ```lua
-local function wow(a, b)
+function wow(a, b)
 	log(a)
 	Sleep(1000)
 	log(b)
@@ -323,7 +323,7 @@ IsSolid(0, 0) -- return bool (true == block is solid)
 
 Example:
 ```lua
-local payload = [[{
+payload = [[{
     "content": "",
     "embeds": [{
         "title": "ytta",
@@ -346,7 +346,7 @@ local payload = [[{
         "timestamp": "2023-02-14T17:00:00.000Z"
     }]
 }]]
-local webhook = ""
+webhook = ""
 SendWebhook(webhook, payload)
 ```
 
@@ -401,7 +401,7 @@ Returns table of path to destination
 
 Example:
 ```lua
-local path = PathFind(46, 10)
+path = PathFind(46, 10)
 print(#path) -- how much block does it take to that destination
 for i, v in pairs(path) do
 	print(("%d, %d"):format(v.x, v.y))
