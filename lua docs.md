@@ -258,10 +258,9 @@ AddHook("OnRawPacket", "hook", hook)
 
 ## IsReady
 `IsReady(int x, int y)`
-Check if the seed is harvestable, return true if yes. else is false
 
 ```lua
-IsReady(9, 45)
+IsReady(9, 45) -- return bool (true == harvestable)
 ```
 
 ## GetPing
@@ -309,15 +308,14 @@ function hook(varlist, packet)
 end
 AddHook("OnVarlist", "hook", hook)
 
-RemoveHook("Hook") --remove that callback
+RemoveHook("Hook")
 ```
 
 ## IsSolid
 `IsSolid(int x, int y)`
-Check if the block is solid, return true if yes. else is false
 
 ```lua
-IsSolid(0, 0)
+IsSolid(0, 0) -- return bool (true == block is solid)
 ```
 
 ## SendWebhook
@@ -366,7 +364,7 @@ Example:
 
 Example:
 ```lua
-	EditToggle("ModFly", true)-- active modfly
+	EditToggle("ModFly", true) -- activate modfly
 ```
 ## Module list:
 * ModFly
@@ -384,7 +382,7 @@ Example:
 
 Example:
 ```lua
-log(GetItemCount(2))--return dirt count 
+log(GetItemCount(2)) --return dirt count 
 ```
 ## GetIteminfo
 `GetIteminfo(int id)`
@@ -393,7 +391,7 @@ Returns table of [ItemInfo](#ItemInfo)
 
 Example:
 ```lua
-log(GetIteminfo(2).name)--return name of id block 2
+log(GetIteminfo(2).name) -- return name of id block 2
 ```
 
 ## PathFind
