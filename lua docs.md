@@ -426,6 +426,9 @@ end
 |:-----|:----:|:-----------|
 | String | `name` | Player's name |
 | String | `country` | Player's flag id |
+| Number | `selected_item` | Return selected item in inventory |
+| Number | `backpack_size` | Return backpack size |
+
 | Number | `pos_x`  | Player's x position |
 | Number | `pos_y`  | Player's y position |
 | Number | `tile_x` | Player's x tile position |
