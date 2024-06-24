@@ -284,13 +284,18 @@ log(translated_text) -- return ' What '
 ```
 
 ## MessageBox
-`MessageBox(string title, string content)`
+`MessageBox(string title, string content, icon)`
 Send a messagebox to your client!
 
 Example:
 ```lua
-MessageBox("This is title", "This is content")
+MessageBox("This is title", "This is content", "Error")
 ```
+## Module list:
+* Success
+* Warning
+* Error
+* Info
 
 ## RemoveHooks
 `RemoveHooks()`
@@ -378,6 +383,8 @@ EditToggle("ModFly", true) -- activate modfly
 * FastRoshambo
 * GemsChecker
 * Scan
+* PathFinder
+* SafeMode
 
 ## GetItemCount
 `GetItemCount(int id)`
