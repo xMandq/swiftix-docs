@@ -195,6 +195,7 @@ end
 
 ## RunThread
 `RunThread(function)`
+
 Run a function in a different thread
 
 Example:
@@ -208,6 +209,7 @@ end)
 
 ## Sleep
 `Sleep(int ms)`
+
 put a delay inside a [Thread](#runthread)
 
 Example:
@@ -224,6 +226,7 @@ end)
 
 ## AddHook
 `AddHook(void* function, string name)`
+
 Add a Hook to a selected function
 
 Example:
@@ -266,6 +269,7 @@ IsReady(9, 45) -- return bool (true == harvestable)
 
 ## GetPing
 `GetPing()`
+
 Get ping ms from your peer
 
 Example:
@@ -275,6 +279,7 @@ log("My ping is : "..tostring(GetPing()))
 
 ## TranslateText
 `TranslateText(text, language to translate in, text language)`
+
 Translate text messages and returns translated message
 
 Example:
@@ -285,6 +290,7 @@ log(translated_text) -- return ' What '
 
 ## MessageBox
 `MessageBox(string title, string content, icon)`
+
 Send a messagebox to your client!
 
 Example:
@@ -299,10 +305,12 @@ MessageBox("This is title", "This is content", "Error")
 
 ## RemoveHooks
 `RemoveHooks()`
+
 Remove all callbacks
 
 ## RemoveHook
 `RemoveHook(string name)`
+
 Remove spesific name on callback
 
 Example:
