@@ -5,6 +5,8 @@
 * [SendVarlist](#sendvarlist)
 * [log](#log)
 * [HotKey](#hotkey)
+* [Login](#login)
+* [GetClient](#getvlient)
 * [FindPath](#findpath)
 * [GetLocal](#getlocal)
 * [GetInventory](#getinventory)
@@ -95,7 +97,7 @@ Example:
 log("Hello!")
 ```
 
-## hotkey
+## HotKey
 `HotKey(std::string key_name, void* function)`
 
 Example:
@@ -105,6 +107,23 @@ function test()
 end
 
 HotKey("F1", test)
+```
+
+## Login
+`Login(std::string growid, password)`
+
+Example:
+```lua
+Login("Mandq", "uhmmwhatthesigma123.)
+```
+
+## GetClient
+`GetClient()`
+
+Example:
+```lua
+log(GetClient().server_ip)
+log(GetClient().server_port)
 ```
 
 ## FindPath
@@ -453,39 +472,51 @@ end
 ## NetAvatar
 | Type | Name | Description|
 |:-----|:----:|:-----------|
-| String | `name` | Player's name |
-| String | `country` | Player's flag id |
 | Number | `selected_item` | Return selected item in inventory |
 | Number | `backpack_size` | Return backpack size |
-| Number | `pos_x`  | Player's x position |
-| Number | `pos_y`  | Player's y position |
+| Bool | `facing_left` | Is player facing left |
 | Number | `tile_x` | Player's x tile position |
 | Number | `tile_y` | Player's y tile position |
+| Number | `pos_x`  | Player's x position |
+| Number | `pos_y`  | Player's y position |
+| String | `country` | Player's flag id |
 | Number | `size_x` | Player's x size |
 | Number | `size_y` | Player's x size |
-| Number | `netid` | Player's netID |
 | Number | `userid` | Player's userID |
-| Number | `gems` | Player's gems |
-| Bool | `facing_left` | Is player facing left |
-| Number | `flags` | Player's flags |
 | Number | `flags2` | Player's flags2 |
+| Number | `netid` | Player's netID |
+| Number | `flags` | Player's flags |
+| String | `name` | Player's name |
+| Number | `gems` | Player's gems |
+|:-----|:----:|:-----------|
+| Bool | `isEquipped` | Is item equipped |
+| Number | `hat` | Player's hat |
+| Number | `shirt` | Player's shirt |
+| Number | `pants` | Player's pants |
+| Number | `shoes` | Player's shoes |
+| Number | `face` | Player's face |
+| Number | `hand` | Player's hand |
+| Number | `wing` | Player's wing |
+| Number | `hair` | Player's hair |
+| Number | `chest` | Player's chest |
+| Number | `ances` | Player's ances |
 
 ## CurrentWorld
 | Type | Name | Description|
 |:-----|:----:|:-----------|
-| Number | `name` | Current world name |
 | Number | `size_x` | Current world size horizontally |
 | Number | `size_y` | Current world size vertically |
+| Number | `name` | Current world name |
 
 ## WorldObject
 | Type | Name | Description|
 |:-----|:----:|:-----------|
-| Number | `id` | Object's item ID |
-| Number | `oid` | Object's index |
 | Number | `pos_x` | Object's x position |
 | Number | `pos_y` | Object's y position |
 | Number | `count` | Object's item count |
 | Number | `flags` | Object's flags |
+| Number | `id` | Object's item ID |
+| Number | `oid` | Object's index |
 
 ## InventoryItem
 | Type | Name | Description|
@@ -507,12 +538,12 @@ end
 | Type | Name | Description|
 |:-----|:----:|:-----------|
 | Number | `type` | Packet type |
+| Number | `flags ` | Packet flags |
+| Number | `netid ` | Packet netID |
 | Number | ` objtype` |  |
 | Number | `count1 ` |  |
 | Number | `count2 ` |  |
-| Number | `netid ` | Packet netID |
 | Number | `item ` |  |
-| Number | `flags ` | Packet flags |
 | Number | `float1` |  |
 | Number | `int_data` |  |
 | Number | `pos_x` |  |
@@ -528,7 +559,7 @@ end
 |:-----|:----:|:-----------|
 | Number | `netid` | NetID |
 | Number | `delay` | Delay |
-| String | `[0]` | Variant function name |
+| String | `[0]` | Param 0 |
 | Any | `[1]` | Param 1 |
 | Any | `[2]` | Param 2 |
 | Any | `[3]` | Param 3 |
