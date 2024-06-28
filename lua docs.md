@@ -4,6 +4,7 @@
 * [SendPacketRawClient](#sendpacketrawclient)
 * [SendVarlist](#sendvarlist)
 * [log](#log)
+* [HotKey](#hotkey)
 * [FindPath](#findpath)
 * [GetLocal](#getlocal)
 * [GetInventory](#getinventory)
@@ -92,6 +93,18 @@ Example:
 ```lua
 -- Logs "Hello!" to Growtopias console
 log("Hello!")
+```
+
+## hotkey
+`HotKey(std::string key_name, void* function)`
+
+Example:
+```lua
+function test()
+    log('Clicked F1')
+end
+
+HotKey("F1", test)
 ```
 
 ## FindPath
