@@ -488,7 +488,7 @@ end
 | Number | `flags` | Player's flags |
 | String | `name` | Player's name |
 | Number | `gems` | Player's gems |
-|:-----|:----:|:-----------|
+| | | |
 | Bool | `isEquipped` | Is item equipped |
 | Number | `hat` | Player's hat |
 | Number | `shirt` | Player's shirt |
