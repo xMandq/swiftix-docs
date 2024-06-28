@@ -6,7 +6,7 @@
 * [log](#log)
 * [HotKey](#hotkey)
 * [Login](#login)
-* [GetClient](#getvlient)
+* [GetClient](#getclient)
 * [FindPath](#findpath)
 * [GetLocal](#getlocal)
 * [GetInventory](#getinventory)
