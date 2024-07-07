@@ -514,6 +514,8 @@ end
 | Number | `pos_x` | Object's x position |
 | Number | `pos_y` | Object's y position |
 | Number | `count` | Object's item count |
+| Number | `item_price` | Vends's item price |
+| Number | `item_id` | Vends's item id |
 | Number | `flags` | Object's flags |
 | Number | `id` | Object's item ID |
 | Number | `oid` | Object's index |
