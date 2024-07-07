@@ -514,8 +514,6 @@ end
 | Number | `pos_x` | Object's x position |
 | Number | `pos_y` | Object's y position |
 | Number | `count` | Object's item count |
-| Number | `item_price` | Vends's item price |
-| Number | `item_id` | Vends's item id |
 | Number | `flags` | Object's flags |
 | Number | `id` | Object's item ID |
 | Number | `oid` | Object's index |
@@ -534,6 +532,8 @@ end
 | Number | `bg` | Background block's ID |
 | Number | `pos_x` |Tile's x position |
 | Number | `pos_y` |Tile's y position |
+| Number | `item_price` | Vends's item price |
+| Number | `item_id` | Vends's item id |
 | Number | `flags` | Tile's flags |
 
 ## GamePacket
