@@ -29,7 +29,7 @@
 * [CheckPath](#checkpath)
 * [EditToggle](#edittoggle)
 * [GetItemCount](#getitemcount)
-* [GetIteminfo](#GetIteminfo)
+* [GetItemInfo](#GetItemInfo)
 * [PathFind](#PathFind)
 
 
@@ -433,14 +433,14 @@ Example:
 ```lua
 log(GetItemCount(2)) -- return dirt count 
 ```
-## GetIteminfo
-`GetIteminfo(int id)`
+## GetItemInfo
+`GetItemInfo(int id)`
 
 Returns table of [ItemInfo](#ItemInfo)
 
 Example:
 ```lua
-log(GetIteminfo(2).name) -- return name of id block 2
+log(GetItemInfo(2).name) -- return name of id block 2
 ```
 
 ## PathFind
