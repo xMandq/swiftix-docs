@@ -380,7 +380,7 @@ Adds a hook for an event.
 
 `OnIncomingRawPacket(packet)`
 
-`OnVarlist(netid, varlist)`
+`OnVarlist(varlist)`
 
 `OnIncomingPacket(packet)`
 
