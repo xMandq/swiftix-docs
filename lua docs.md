@@ -19,6 +19,7 @@
 - [AddHook](#addhook)
 - [RunThread](#runthread)
 - [Sleep](#sleep)
+- [GetAccesslist](#getaccesslist)
 - [MessageBox](#messagebox)
 - [RemoveHooks](#removehooks)
 - [RemoveHook](#removehook)
@@ -480,6 +481,19 @@ Sleeps for specified milliseconds.
 Talk("Hey!")
 Sleep(1000)
 Talk("bye :(")
+```
+---
+
+## GetAccesslist
+`GetAccesslist(int x, int y)`
+
+Get lock's access userid list
+
+**Example**:
+```lua
+for __,v in pairs(GetAccesslist(0,0)) do
+	log(v.uid)
+end
 ```
 ---
 
