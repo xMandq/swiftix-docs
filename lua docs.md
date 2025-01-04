@@ -30,7 +30,7 @@
 - [GetItemCount](#getitemcount)
 - [GetItemInfo](#getiteminfo)
 - [PathFind](#pathfind)
-
+- [Helper Functions](#helpfunction)
 ---
 
 ## SendPacket
@@ -664,7 +664,28 @@ for i, v in pairs(path) do
 	print(("%d, %d"):format(v.x, v.y))
 end
 ```
+---
 
+## Helper Functions
+`Place(int x, int y, int item_id)`
+
+`Punch(int x, int y)`
+
+`Wrench(int x, int y)`
+
+`Wear(int id)`
+
+`Warp(string name)`
+
+`Talk(string message)`
+
+`Leave()`
+
+**Example**:
+```lua
+log(GetItemInfo(112).name)
+```
+---
 
 # Structs
 
