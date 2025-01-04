@@ -30,8 +30,6 @@
 - [GetItemCount](#getitemcount)
 - [GetItemInfo](#getiteminfo)
 - [PathFind](#pathfind)
-  
----
 
 ## SendPacket
 `SendPacket(int type, string packet)`
