@@ -374,21 +374,9 @@ log("My ping is : "..tostring(GetPing()))
 
 Adds a hook for an event.
 
-`OnPacket(type, packet)`
-
-`OnRawPacket(packet)`
-
-`OnIncomingRawPacket(packet)`
-
-`OnVarlist(varlist)`
-
-`OnIncomingPacket(type, packet)`
-
-`OnTouch(pos)`
-
-`OnTrackPacket(packet)`
-
 **Examples**:
+
+`OnPacket(type, packet)`
 ```lua
 function command_invisible(type, packet)
     if packet == ("action|input\n|text|/invisible") then
@@ -408,7 +396,10 @@ function command_invisible(type, packet)
 end
 
 AddHook("OnPacket","command_invisible", command_invisible)
+```
 
+`OnRawPacket(packet)`
+```lua
 function hook(packet)
 	if packet.type == 0 then
 		return true
@@ -416,7 +407,10 @@ function hook(packet)
 end
 
 AddHook("OnRawPacket","hook", hook)
+```
 
+`OnIncomingRawPacket(packet)`
+```lua
 function dice(packet)
     if packet.type == 8 and packet.int_data == 0 and GetTile(packet.int_x, packet.int_y).fg == 456 then
         dice_roll = tostring(packet.count2 + 1)
@@ -424,7 +418,10 @@ function dice(packet)
     end
 end 
 AddHook("OnIncomingRawPacket",'dice', dice)
+```
 
+`OnVarlist(varlist)`
+```lua
 function player_count(varlist)
     if varlist[0] == "OnConsoleMessage" and varlist[1]:find("Where would you like to go?") then
         online_count = varlist[1]:match("`w(.-)``")
@@ -433,7 +430,10 @@ function player_count(varlist)
     end
 end
 AddHook("OnVarlist", "player_count", player_count)
+```
 
+`OnIncomingPacket(type, packet)`
+```lua
 function AudioChecker(type, packet)
     if packet:find("action|play_sfx") then
         audio_file = packet:match("file|(.+)delayMS"):gsub("%s", "")
@@ -441,7 +441,10 @@ function AudioChecker(type, packet)
     end
 end 
 AddHook('OnIncomingPacket','AudioChecker', AudioChecker)
+```
 
+`OnTouch(pos)`
+```lua
 local prev_x_tile, prev_y_tile
 
 function PunchPlace(pos)
@@ -457,7 +460,10 @@ function PunchPlace(pos)
 end
 
 AddHook('OnTouch', 'PunchPlace', PunchPlace)
+```
 
+`OnTrackPacket(packet)`
+```lua
 function ShowDropped(packet)
     if packet:find("eventType|0") then
         OwnerID = packet:match("World_owner|(%d+)")
