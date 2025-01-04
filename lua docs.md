@@ -614,9 +614,10 @@ EditToggle("ModFly", true) -- activate modfly
 ```
 ## Module list:
 * ModFly
+* AntiPortal
 * AntiBounce
 * AutoCollect
-* AutoCollectRange ( Later )
+* AutoCollectRange
 * PathFinderWithSmoke ( Later )
 * RightClickKick
 * LeftClickPull
