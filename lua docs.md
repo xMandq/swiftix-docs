@@ -666,8 +666,6 @@ end
 ## NetAvatar
 | Type   | Name              | Description                            |
 |:------|:------------------|:---------------------------------------|
-| Number | `selected_item`    | Return selected item in inventory      |
-| Number | `backpack_size`    | Return backpack size                   |
 | Bool   | `facing_left`      | Is player facing left                  |
 | Number | `tile_x`           | Player's x tile position               |
 | Number | `tile_y`           | Player's y tile position               |
@@ -718,6 +716,8 @@ end
 | Number | `id`              | Item's ID                              |
 | Number | `count`           | Item count                             |
 | Bool | `untradeable`      | Is Item Tradable                       |
+| Number | `selected_item`    | Return selected item in inventory      |
+| Number | `backpack_size`    | Return backpack size                   |
 | Number | `flags`           | Item flags                             |
 
 ## Tile
