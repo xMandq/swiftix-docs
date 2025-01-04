@@ -30,7 +30,7 @@
 - [GetItemCount](#getitemcount)
 - [GetItemInfo](#getiteminfo)
 - [PathFind](#pathfind)
-- [Helper Functions](#helpfunction)
+- [Helper Functions](#HelperFunctions)
 ---
 
 ## SendPacket
@@ -666,7 +666,7 @@ end
 ```
 ---
 
-## Helper Functions
+## HelperFunctions
 `Place(int x, int y, int item_id)`
 
 `Punch(int x, int y)`
