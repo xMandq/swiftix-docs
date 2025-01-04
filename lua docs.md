@@ -370,7 +370,7 @@ log("My ping is : "..tostring(GetPing()))
 ---
 
 ## AddHook
-`AddHook(string event, function callback)`
+`AddHook(string type, string name, function)`
 
 Adds a hook for an event.
 
@@ -740,6 +740,7 @@ end
 ## InventoryItem
 | Type   | Name              | Description                            |
 |:------|:------------------|:---------------------------------------|
+| Bool | `id`                | Is Item Tradable                       |
 | Number | `id`              | Item's ID                              |
 | Number | `count`           | Item count                             |
 | Number | `flags`           | Item flags                             |
@@ -792,6 +793,7 @@ end
 |:------|:------------------|:---------------------------------------|
 | String | `id`              | item's id                              |
 | String | `name`            | item's name                            |
+| Bool | `id`                | Is Item Tradable                       |
 | Number | `item_type`       | Item's type                             |
 | Number | `body_part`       | Body's part type                       |
 | Number | `growtime`        | Item's growth time                     |
