@@ -5,8 +5,6 @@
 - [SendPacketRawClient](#sendpacketrawclient)
 - [SendVarlist](#sendvarlist)
 - [log](#log)
-- [HotKey](#hotkey)
-- [Login](#login)
 - [GetClient](#getclient)
 - [FindPath](#findpath)
 - [GetLocal](#getlocal)
@@ -21,7 +19,6 @@
 - [AddHook](#addhook)
 - [RunThread](#runthread)
 - [Sleep](#sleep)
-- [TranslateText](#translatetext)
 - [MessageBox](#messagebox)
 - [RemoveHooks](#removehooks)
 - [RemoveHook](#removehook)
@@ -54,7 +51,7 @@ SendPacket(2, "action|input\n|text|/dance2")
 ## SendPacketRaw
 `SendPacketRaw(GamePacket packet)`
 
-Sends `GamePacket` to server.
+Sends [GamePacket](#gamepacket) to server.
 
 **Examples**:
 ```lua
@@ -107,7 +104,7 @@ end
 ## SendPacketRawClient
 `SendPacketRawClient(GamePacket packet)`
 
-Sends `GamePacket` to client.
+Sends [GamePacket](#gamepacket) to client.
 
 **Examples**:
 ```lua
@@ -131,7 +128,9 @@ SendPacketRawClient(packet)
 ---
 
 ## SendVarlist
-`SendVarlist(table varlist)`
+`SendVarlist(VariantList varlist)`
+
+Sends [VariantList](#variantlist) to server/client.
 
 **Examples**:
 ```lua
@@ -176,27 +175,6 @@ log("Hello!")
 ```
 ---
 
-## HotKey
-`HotKey(std::string key_name, void* function)`
-
-**Example**:
-```lua
-function test()
-    log('Clicked F1')
-end
-HotKey("F1", test)
-```
----
-
-## Login
-`Login(std::string growid, password)`
-
-**Example**:
-```lua
-Login("Mandq", "uhmmwhatthesigma123.")
-```
----
-
 ## GetClient
 `GetClient()`
 
@@ -221,7 +199,7 @@ FindPath(0, 0)
 ## GetLocal
 `GetLocal()`
 
-Returns local `NetAvatar` struct
+Returns local [NetAvatar](#netavatar) struct
 
 **Example**:
 ```lua
@@ -235,6 +213,8 @@ log("My X position is: " .. math.floor(GetLocal().pos_x) .. ", My Y position is:
 
 ## GetInventory
 `GetInventory()`
+
+Returns local [InventoryItem](#inventoryitem) struct
 
 **Examples**:
 ```lua
@@ -280,7 +260,7 @@ end
 ## GetObjects
 `GetObjects()`
 
-Gets all objects in the world.
+Gets all [WorldObject](#worldobject) in the world.
 
 **Example**:
 ```lua
@@ -293,7 +273,7 @@ end
 ## GetWorld
 `GetWorld()`
 
-Gets current world.
+Gets [Current World](#currentworld) information.
 
 **Example**:
 ```lua
@@ -308,7 +288,7 @@ end
 ## GetTile
 `GetTile(int x, int y)`
 
-Gets specific tile.
+Gets specific [Tile](#tile) information.
 
 **Example**:
 ```lua
@@ -319,7 +299,7 @@ log(GetTile(0, 0).fg)
 ## GetTiles
 `GetTiles()`
 
-Gets all tiles in the world.
+Gets all [Tiles](#tile) in the world.
 
 **Examples**:
 ```lua
@@ -376,7 +356,7 @@ Adds a hook for an event.
 
 **Examples**:
 
-`OnPacket(type, packet)`
+`OnPacket(int type, string packet)`
 ```lua
 function command_invisible(type, packet)
     if packet == ("action|input\n|text|/invisible") then
@@ -398,7 +378,7 @@ end
 AddHook("OnPacket","command_invisible", command_invisible)
 ```
 
-`OnRawPacket(packet)`
+`OnRawPacket(GamePacket packet)`
 ```lua
 function hook(packet)
 	if packet.type == 0 then
@@ -409,7 +389,7 @@ end
 AddHook("OnRawPacket","hook", hook)
 ```
 
-`OnIncomingRawPacket(packet)`
+`OnIncomingRawPacket(GamePacket packet)`
 ```lua
 function dice(packet)
     if packet.type == 8 and packet.int_data == 0 and GetTile(packet.int_x, packet.int_y).fg == 456 then
@@ -420,7 +400,7 @@ end
 AddHook("OnIncomingRawPacket",'dice', dice)
 ```
 
-`OnVarlist(varlist)`
+`OnVarlist(VariantList varlist)`
 ```lua
 function player_count(varlist)
     if varlist[0] == "OnConsoleMessage" and varlist[1]:find("Where would you like to go?") then
@@ -432,7 +412,7 @@ end
 AddHook("OnVarlist", "player_count", player_count)
 ```
 
-`OnIncomingPacket(type, packet)`
+`OnIncomingPacket(int type, string packet)`
 ```lua
 function AudioChecker(type, packet)
     if packet:find("action|play_sfx") then
@@ -462,7 +442,7 @@ end
 AddHook('OnTouch', 'PunchPlace', PunchPlace)
 ```
 
-`OnTrackPacket(packet)`
+`OnTrackPacket(string packet)`
 ```lua
 function ShowDropped(packet)
     if packet:find("eventType|0") then
@@ -500,17 +480,6 @@ Sleeps for specified milliseconds.
 Talk("Hey!")
 Sleep(1000)
 Talk("bye :(")
-```
----
-
-## TranslateText ( Under development )
-`TranslateText(string text)`
-
-Translates text.
-
-**Example**:
-```lua
-.-.
 ```
 ---
 
