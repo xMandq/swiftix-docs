@@ -456,7 +456,7 @@ AddHook("OnTrackPacket","ShowDropped", ShowDropped)
 ---
 
 ## RunThread
-`RunThread(function callback)`
+`RunThread(function)`
 
 Runs a function as a thread.
 
@@ -506,7 +506,7 @@ RemoveHooks()
 ---
 
 ## RemoveHook
-`RemoveHook(string event, function callback)`
+`RemoveHook(function)`
 
 Removes specific hook.
 
