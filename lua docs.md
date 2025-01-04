@@ -373,6 +373,7 @@ log("My ping is : "..tostring(GetPing()))
 `AddHook(string event, function callback)`
 
 Adds a hook for an event.
+
 `OnPacket(type, packet)`
 
 `OnRawPacket(packet)`
