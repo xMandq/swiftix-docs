@@ -740,7 +740,7 @@ end
 ## InventoryItem
 | Type   | Name              | Description                            |
 |:------|:------------------|:---------------------------------------|
-| Bool | `id`                | Is Item Tradable                       |
+| Bool | `untradeable`      | Is Item Tradable                       |
 | Number | `id`              | Item's ID                              |
 | Number | `count`           | Item count                             |
 | Number | `flags`           | Item flags                             |
@@ -793,8 +793,8 @@ end
 |:------|:------------------|:---------------------------------------|
 | String | `id`              | item's id                              |
 | String | `name`            | item's name                            |
-| Bool | `id`                | Is Item Tradable                       |
-| Number | `item_type`       | Item's type                             |
+| Bool   | `untradeable`       | Is Item Tradable                       |
+| Number | `item_type`       | Item's type                            |
 | Number | `body_part`       | Body's part type                       |
 | Number | `growtime`        | Item's growth time                     |
 | Number | `rarity`          | Item's rarity                          |
