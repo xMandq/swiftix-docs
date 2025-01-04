@@ -382,7 +382,7 @@ Adds a hook for an event.
 
 `OnVarlist(varlist)`
 
-`OnIncomingPacket(packet)`
+`OnIncomingPacket(type, packet)`
 
 `OnTouch(pos)`
 
