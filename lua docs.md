@@ -58,6 +58,8 @@ Sends `GamePacket` to server.
 
 **Examples**:
 ```lua
+EditToggle("SafeMode", true)
+
 function hit(x, y)
     if GetWorld() then
         pkt = {}
@@ -168,7 +170,7 @@ SendVarlist(var)
 
 Logs message to Growtopias console (only client side).
 
-**Examples**:
+**Example**:
 ```lua
 log("Hello!")
 ```
@@ -177,7 +179,7 @@ log("Hello!")
 ## HotKey
 `HotKey(std::string key_name, void* function)`
 
-**Examples**:
+**Example**:
 ```lua
 function test()
     log('Clicked F1')
@@ -189,7 +191,7 @@ HotKey("F1", test)
 ## Login
 `Login(std::string growid, password)`
 
-**Examples**:
+**Example**:
 ```lua
 Login("Mandq", "uhmmwhatthesigma123.")
 ```
@@ -210,7 +212,7 @@ log(GetClient().server_port)
 
 Finds path to selected x,y.
 
-**Examples**:
+**Example**:
 ```lua
 FindPath(0, 0)
 ```
@@ -219,9 +221,9 @@ FindPath(0, 0)
 ## GetLocal
 `GetLocal()`
 
-Gets local player.
+Returns local `NetAvatar` struct
 
-**Examples**:
+**Example**:
 ```lua
 function string.removeColors(varlist)
 	return varlist:gsub("`.", "")
@@ -233,8 +235,6 @@ log("My X position is: " .. math.floor(GetLocal().pos_x) .. ", My Y position is:
 
 ## GetInventory
 `GetInventory()`
-
-Gets local inventory.
 
 **Examples**:
 ```lua
@@ -282,7 +282,7 @@ end
 
 Gets all objects in the world.
 
-**Examples**:
+**Example**:
 ```lua
 for _, v in pairs(GetObjects()) do
     log("" ..GetItemInfo(v.id).name.." is on: "..math.floor(v.pos_x // 32)..", "..math.floor(v.pos_y // 32))
@@ -295,7 +295,7 @@ end
 
 Gets current world.
 
-**Examples**:
+**Example**:
 ```lua
 if GetWorld() then
     log("Im in world "..GetWorld().name)
@@ -310,11 +310,9 @@ end
 
 Gets specific tile.
 
-**Examples**:
+**Example**:
 ```lua
 log(GetTile(0, 0).fg)
-
-
 ```
 ---
 
@@ -354,7 +352,7 @@ end
 ## IsReady
 `IsReady(int x, int y)`
 
-**Examples**:
+**Example**:
 ```lua
 IsReady(9, 45) -- return bool (true == harvestable)
 ```
@@ -365,7 +363,7 @@ IsReady(9, 45) -- return bool (true == harvestable)
 
 Gets current ping.
 
-**Examples**:
+**Example**:
 ```lua
 log("My ping is : "..tostring(GetPing()))
 ```
@@ -376,13 +374,19 @@ log("My ping is : "..tostring(GetPing()))
 
 Adds a hook for an event.
 `OnPacket(type, packet)`
+
 `OnRawPacket(packet)`
+
 `OnIncomingRawPacket(packet)`
+
 `OnVarlist(netid, varlist)`
+
 `OnIncomingPacket(packet)`
+
 `OnTouch(pos)`
+
 `OnTrackPacket(packet)`
-`
+
 **Examples**:
 ```lua
 function command_invisible(type, packet)
@@ -469,7 +473,7 @@ AddHook("OnTrackPacket","ShowDropped", ShowDropped)
 
 Runs a function as a thread.
 
-**Examples**:
+**Example**:
 ```lua
 RunThread(function()
     log("Thread started")
@@ -484,7 +488,7 @@ end)
 
 Sleeps for specified milliseconds.
 
-**Examples**:
+**Example**:
 ```lua
 Talk("Hey!")
 Sleep(1000)
@@ -492,14 +496,14 @@ Talk("bye :(")
 ```
 ---
 
-## TranslateText
+## TranslateText ( Under development )
 `TranslateText(string text)`
 
 Translates text.
 
-**Examples**:
+**Example**:
 ```lua
-log(TranslateText("hello")) -- add this later
+.-.
 ```
 ---
 
@@ -508,7 +512,7 @@ log(TranslateText("hello")) -- add this later
 
 Shows a message box.
 
-**Examples**:
+**Example**:
 ```lua
 MessageBox("Title", "Message")
 ```
@@ -519,7 +523,7 @@ MessageBox("Title", "Message")
 
 Removes all hooks.
 
-**Examples**:
+**Example**:
 ```lua
 RemoveHooks()
 ```
@@ -530,7 +534,7 @@ RemoveHooks()
 
 Removes specific hook.
 
-**Examples**:
+**Example**:
 ```lua
 function Dropping(varlist, packet)
     if varlist[0]:find("OnDialogRequest") then
@@ -546,7 +550,7 @@ RemoveHook("Dropping")
 ## IsSolid
 `IsSolid(int x, int y)`
 
-**Examples**:
+**Example**:
 ```lua
 IsSolid(0, 0) -- return bool (true == block is solid)
 ```
@@ -555,32 +559,45 @@ IsSolid(0, 0) -- return bool (true == block is solid)
 ## SendWebhook
 `SendWebhook(string webhook, string json)`
 
-**Examples**:
+**Example**:
 ```lua
 payload = [[{
-    "content": "",
+    "content": "🚨 **System Report Update** 🚨",
     "embeds": [{
-        "title": "ytta",
-        "description": "ytta :flushed:",
-        "url": "https://avatarfiles.alphacoders.com/334/334449.png",
-        "color": 5814783,
+        "title": "🔧 **Server Maintenance**",
+        "description": "Our server is undergoing maintenance. Here's a quick update on the current status.",
+        "url": "https://status.discord.com",
+        "color": 7506394,
         "fields": [{
-            "name": "Introduction",
-            "value": "My name is Walter Hartwell White. I live at 308 Negra Arroyo Lane Albuquerque New Mexico 87104. This is my confession."
+            "name": "**Uptime**",
+            "value": "⏳ 72 hours, 15 minutes",
+            "inline": true
+        }, {
+            "name": "**Users Online**",
+            "value": "👥 175 active users",
+            "inline": true
+        }, {
+            "name": "**System Load**",
+            "value": "💻 CPU: 30%, RAM: 40%",
+            "inline": true
+        }, {
+            "name": "**Recent Alerts**",
+            "value": "⚠️ No critical errors at the moment.",
+            "inline": false
         }],
         "author": {
-            "name": "kontol",
-            "url": "https://avatarfiles.alphacoders.com/334/334449.png",
-            "icon_url": "https://avatarfiles.alphacoders.com/334/334449.png"
+            "name": "System Monitoring Service 🛠️",
+            "url": "https://www.example.com/monitoring",
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Tool_Icon.svg/1200px-Tool_Icon.svg.png"
         },
         "footer": {
-            "text": "sended from !",
-            "icon_url": "https://copypastatext.com/wp-content/uploads/2021/12/index-14.jpg"
+            "text": "Last updated: 2025-01-04 | 14:00 UTC",
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Discord_logo_2021.svg"
         },
-        "timestamp": "2023-02-14T17:00:00.000Z"
+        "timestamp": "2025-01-04T14:00:00.000Z"
     }]
 }]]
-webhook = ""
+webhook = "https://discord.com/api/webhooks/"
 SendWebhook(webhook, payload)
 ```
 ---
@@ -590,7 +607,7 @@ SendWebhook(webhook, payload)
 
 Checks path to x, y.
 
-**Examples**:
+**Example**:
 ```lua
 if CheckPath(0, 0) then
     FindPath(0, 0)
@@ -627,7 +644,7 @@ EditToggle("ModFly", true) -- activate modfly
 
 Gets count of specific item.
 
-**Examples**:
+**Example**:
 ```lua
 log(GetItemCount(112))
 ```
@@ -638,7 +655,7 @@ log(GetItemCount(112))
 
 Gets info of specific item.
 
-**Examples**:
+**Example**:
 ```lua
 log(GetItemInfo(112).name)
 ```
@@ -649,7 +666,7 @@ log(GetItemInfo(112).name)
 
 Finds path.
 
-**Examples**:
+**Example**:
 ```lua
 path = PathFind(46, 10)
 print(#path) -- how much block does it take to that destination
