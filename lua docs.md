@@ -617,6 +617,7 @@ EditToggle("ModFly", true) -- activate modfly
 * AntiBounce
 * AutoCollect
 * AutoCollectRange ( Later )
+* PathFinderWithSmoke ( Later )
 * RightClickKick
 * LeftClickPull
 * FastDice
