@@ -441,6 +441,16 @@ function GeigerColors(color)
 end
 
 AddHook('OnGeigerSignal', 'GeigerColors', GeigerColors)
+
+--[[
+outputs:
+
+Red
+Yellow
+Rapid Green
+Green
+Unknow
+]]
 ```
 
 `OnTouch(pos)`
