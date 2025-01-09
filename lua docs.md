@@ -422,6 +422,27 @@ end
 AddHook('OnIncomingPacket','AudioChecker', AudioChecker)
 ```
 
+`OnTrackPacket(string packet)`
+```lua
+function ShowDropped(packet)
+    if packet:find("eventType|0") then
+        OwnerID = packet:match("World_owner|(%d+)")
+        log(OwnerID)
+    end
+end
+
+AddHook("OnTrackPacket","ShowDropped", ShowDropped)
+```
+
+`OnGeigerSignal(color)`
+```lua
+function GeigerColors(color)
+    log("Geiger signal color: "..color)
+end
+
+AddHook('OnGeigerSignal', 'GeigerColors', GeigerColors)
+```
+
 `OnTouch(pos)`
 ```lua
 local prev_x_tile, prev_y_tile
@@ -439,18 +460,6 @@ function PunchPlace(pos)
 end
 
 AddHook('OnTouch', 'PunchPlace', PunchPlace)
-```
-
-`OnTrackPacket(string packet)`
-```lua
-function ShowDropped(packet)
-    if packet:find("eventType|0") then
-        OwnerID = packet:match("World_owner|(%d+)")
-        log(OwnerID)
-    end
-end
-
-AddHook("OnTrackPacket","ShowDropped", ShowDropped)
 ```
 ---
 
@@ -694,18 +703,6 @@ end
 | Number | `flags`            | Player's flags                         |
 | String | `name`             | Player's name                          |
 | Number | `gems`             | Player's gems                          |
-|       |                    |                                        |
-| Bool   | `isEquipped`       | Is item equipped                       |
-| Number | `hat`              | Player's hat                           |
-| Number | `shirt`            | Player's shirt                         |
-| Number | `pants`            | Player's pants                         |
-| Number | `shoes`            | Player's shoes                         |
-| Number | `face`             | Player's face                          |
-| Number | `hand`             | Player's hand                          |
-| Number | `wing`             | Player's wing                          |
-| Number | `hair`             | Player's hair                          |
-| Number | `chest`            | Player's chest                         |
-| Number | `ances`            | Player's ances                         |
 
 ## CurrentWorld
 | Type   | Name              | Description                            |
