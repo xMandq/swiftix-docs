@@ -424,14 +424,14 @@ AddHook('OnIncomingPacket','AudioChecker', AudioChecker)
 
 `OnTrackPacket(string packet)`
 ```lua
-function ShowDropped(packet)
+function GetOwnerID(packet)
     if packet:find("eventType|0") then
         OwnerID = packet:match("World_owner|(%d+)")
         log(OwnerID)
     end
 end
 
-AddHook("OnTrackPacket","ShowDropped", ShowDropped)
+AddHook("OnTrackPacket","GetOwnerID", GetOwnerID)
 ```
 
 `OnGeigerSignal(color)`
