@@ -646,6 +646,7 @@ EditToggle("ModFly", true) -- activate modfly
 * Scan
 * PathFinder
 * SafeMode
+* TurnOffDebug
 ---
 
 ## GetItemCount
@@ -683,6 +684,14 @@ for i, v in pairs(path) do
 	print(("%d, %d"):format(v.x, v.y))
 end
 ```
+
+## Extras
+
+Extra functions that can be helpful.
+
+* `AttachConsole()`
+
+* `DetachConsole()`
 ---
 
 # Structs
@@ -713,6 +722,7 @@ end
 | Number | `flags`            | Player's flags                         |
 | String | `name`             | Player's name                          |
 | Number | `gems`             | Player's gems                          |
+
 
 ## CurrentWorld
 | Type   | Name              | Description                            |
