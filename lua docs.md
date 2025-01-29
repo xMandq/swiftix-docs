@@ -630,23 +630,28 @@ end
 Example:
 ```lua
 EditToggle("ModFly", true) -- activate modfly
+
+EditToggle(AutoCollectRange, 5) -- turn auto collect range to 5 tiles radius
+EditToggle("AutoCollect", true) -- activate auto collect
+Sleep(1000)
+EditToggle("AutoCollect", false) -- deactivate auto collect
 ```
 ## Module list:
-* ModFly
-* AntiPortal
-* AntiBounce
-* AutoCollect
-* AutoCollectRange
-* PathFinderWithSmoke ( Later )
-* RightClickKick
-* LeftClickPull
-* FastDice
-* FastRoshambo
-* GemsChecker
-* Scan
-* PathFinder
-* SafeMode
-* TurnOffDebug
+* ModFly || enables mod-fly ability
+* AntiPortal || enable anti-portal, ex: doesn't let you go thorugh portals
+* AntiBounce || enable anti-bounce, ex: no death on spike
+* AutoCollect || enable auto-collect
+* AutoCollectRange || puts autocollect range
+* PathFinderWithSmoke ( Later ) || shows smokes on pathfinding path
+* RightClickKick || enables kick on right click wrench
+* LeftClickPull || enables pull on left click wrench
+* FastDice || shows dice output in console ( 1 to 6 )
+* FastRoshambo || shows Roshambo Block output in console ( rock, paper, scissor ) 
+* GemsChecker || enables gem drop count
+* Scan || enables extract-o-snap On Punch
+* PathFinder || enables shift+click to findpath
+* SafeMode || turns a checker for all packets to reduce any ban chance like hitting or placing from long distance
+* TurnOffDebug || turn off all game debug on console, only shows executor outputs.
 ---
 
 ## GetItemCount
