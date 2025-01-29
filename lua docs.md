@@ -631,7 +631,7 @@ Example:
 ```lua
 EditToggle("ModFly", true) -- activate modfly
 
-EditToggle(AutoCollectRange, 5) -- turn auto collect range to 5 tiles radius
+EditToggle("AutoCollectRange", 5) -- turn auto collect range to 5 tiles radius
 EditToggle("AutoCollect", true) -- activate auto collect
 Sleep(1000)
 EditToggle("AutoCollect", false) -- deactivate auto collect
