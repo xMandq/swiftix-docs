@@ -1,33 +1,4 @@
-function OnPacket(type, packet)
-end
-AddHook("OnPacket","OnPacket", OnPacket)
-
-function OnIncomingPacket(type, packet)
-end
-AddHook("OnPacket","OnIncomingPacket", OnIncomingPacket)
-
-function OnRawPacket(packet)
-end
-AddHook("OnRawPacket","OnRawPacket", OnRawPacket)
-
-function OnIncomingRawPacket(packet)
-end
-AddHook("OnIncomingRawPacket","OnIncomingRawPacket", OnIncomingRawPacket)
-
-function OnTrackPacket(packet)
-end
-AddHook("OnTrackPacket","OnTrackPacket", OnTrackPacket)
-
-function OnGeigerSignal(color)
-    log("Geiger signal color: "..color)
-end
-
-AddHook('OnGeigerSignal', 'OnGeigerSignal', OnGeigerSignal)
-
-
-function OnTouch(pos)
-end
-AddHook('OnTouch', 'OnTouch', OnTouch)
+AddHook("OnPacket","OnPacket",function(type,packet)end) AddHook("OnIncomingPacket","OnIncomingPacket",function(type,packet)end) AddHook("OnRawPacket","OnRawPacket",function(packet)end) AddHook("OnIncomingRawPacket","OnIncomingRawPacket",function(packet)end) AddHook("OnTrackPacket","OnTrackPacket",function(packet)end) AddHook('OnGeigerSignal','OnGeigerSignal',function(color)log("Geiger signal color: "..color)end) AddHook('OnTouch','OnTouch',function(pos)end)
 
 RemoveHook("OnPacket")
 RemoveHook("OnRawPacket")
