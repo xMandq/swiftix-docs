@@ -20,7 +20,7 @@ function shouldPrintValue(value)
 end
 
 function printPacketInfo(pkt, prefix)
-    if pkt.type ~= 0 and not IgnorePacketTypeZero then
+    if pkt.type ~= 0 and IgnorePacketTypeZero then
         print(prefix .. " type:     " .. pkt.type)
         
         if shouldPrintValue(pkt.objtype) then
