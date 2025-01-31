@@ -1,0 +1,5 @@
+RemoveHook("OnPacket")
+RemoveHook("OnRawPacket")
+RemoveHook("OnIncomingRawPacket")
+RemoveHook("OnIncomingPacket")
+RemoveHook("OnTrackPacket")
